@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE instance-profile
+        SYSTEM "https://resources.jetbrains.com/writerside/1.0/product-profile.dtd">
+
+<instance-profile id="1"
+                 name="接口文档"
+                 start-page="starter-topic.md">
+
+    <toc-element topic="starter-topic.md">
+        <toc-element topic="1-用户相关接口.md"/>
+        <toc-element topic="2-分类相关接口.md"/>
+    </toc-element>
+</instance-profile>
