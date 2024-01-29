@@ -30,11 +30,11 @@ const loginForm = reactive({
   username: '',
   password: ''
 })
-const registerForm = reactive({
-  username: '',
-  password: '',
-  email: ''
-})
+// const registerForm = reactive({
+//   username: '',
+//   password: '',
+//   email: ''
+// })
 
 function checkLogin() {
   router.push("/main")
@@ -51,8 +51,5 @@ function register() {
 }
 .login-button {
   text-align: center;
-}
-.login-form {
-  margin: 0 auto;
 }
 </style>
