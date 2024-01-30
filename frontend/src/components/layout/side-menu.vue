@@ -1,7 +1,6 @@
 <template>
   <el-row class="tac">
     <el-col>
-      <h5 style="text-align: center">功能列表</h5>
       <el-menu
           class="el-menu--vertical"
           @open="handleOpen"

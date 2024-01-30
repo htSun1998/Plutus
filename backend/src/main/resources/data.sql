@@ -12,6 +12,7 @@ create table user (
     nickname varchar(16)  default '' comment '昵称',
     email varchar(128) default '' comment '邮箱',
     avatar_url varchar(128) default '' comment '头像',
+    user_group int comment '用户组',
     create_time datetime not null comment '创建时间',
     update_time datetime not null comment '修改时间'
 ) comment '用户表';

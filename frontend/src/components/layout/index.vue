@@ -15,7 +15,6 @@
         </el-main>
       </el-container>
     </el-container>
-
 </template>
 
 <script lang="ts">
@@ -25,7 +24,7 @@ import SideMenu from "./side-menu.vue";
 import TopMenu from "./top-menu.vue";
 
 export default defineComponent({
-  components: {RouterView, TopMenu, SideMenu}
+  components: { RouterView, TopMenu, SideMenu }
 })
 </script>
 
@@ -42,5 +41,4 @@ export default defineComponent({
 .main{
   background: #c6e2ff;
 }
-
 </style>

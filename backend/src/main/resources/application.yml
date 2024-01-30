@@ -1,12 +1,12 @@
 server:
-  port: 8080
+  port: 8000
 
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/plutus
+    url: jdbc:mysql://101.43.83.147:3306/plutus
     username: root
-    password: 980721
+    password: 980721Club4
 
 mybatis:
   configuration:
