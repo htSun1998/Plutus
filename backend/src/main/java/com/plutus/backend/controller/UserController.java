@@ -21,6 +21,9 @@ public class UserController {
 
     @PostMapping("/register")
     public Response<Object> register(@RequestBody User user) {
+        if (user.getUsername().isEmpty() || user.getPassword().isEmpty() || user.getEmail().isEmpty()) {
+            return Response.error("请输入完整的信息");
+        }
         User u = userService.findByUsername(user.getUsername());
         if (u == null) {
             userService.register(user);

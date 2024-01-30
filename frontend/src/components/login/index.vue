@@ -16,12 +16,11 @@ const { isLogin } = storeToRefs(loginStore)
 
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  //flex-direction: column;
 }
 </style>

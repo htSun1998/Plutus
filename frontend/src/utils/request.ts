@@ -1,4 +1,5 @@
 import axios, { AxiosInstance } from "axios"
+import {ElNotification} from "element-plus";
 
 const instance: AxiosInstance = axios.create({
     baseURL: "/api",
@@ -7,7 +8,15 @@ const instance: AxiosInstance = axios.create({
 
 instance.interceptors.response.use(
     response => {
-        return response.data
+        if (response.data.code == 0) {
+            return response.data
+        }
+        ElNotification({
+            title: 'Error',
+            message: response.data.message,
+            type: 'error'
+        })
+        return Promise.reject(response.data)
     },
     error => {
         alert("服务异常")
