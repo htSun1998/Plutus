@@ -1,18 +1,20 @@
 <template>
     <el-container>
-      <el-header class="header">
-        <!--顶部导航栏-->
-        <top-menu></top-menu>
-      </el-header>
+      <el-aside width="collapse">
+        <!--左侧导航栏-->
+        <side-menu></side-menu>
+      </el-aside>
       <el-container>
-        <el-aside class="aside">
-          <!--左侧导航栏-->
-          <side-menu></side-menu>
-        </el-aside>
+        <el-header class="header">
+          <!--顶部导航栏-->
+          <top-menu></top-menu>
+        </el-header>
+        <el-divider style="margin: 0"/>
         <el-main class="main">
           <!--主界面区-->
           <RouterView></RouterView>
         </el-main>
+        <el-footer height="20px"></el-footer>
       </el-container>
     </el-container>
 </template>
@@ -29,16 +31,15 @@ export default defineComponent({
 </script>
 
 <style scoped lang="scss">
-.aside{
-  background: #d1edc4;
-  width: 200px;
-}
+
 .header{
-  background: #f8e3c5;
   display: flex;
   align-items: center;
+  padding-left: 10px;
+  padding-right: 5px;
+  height: 50px;
 }
 .main{
-  background: #c6e2ff;
+  background: #F2F3F5;
 }
 </style>

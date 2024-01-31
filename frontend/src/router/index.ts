@@ -10,28 +10,28 @@ const router = createRouter({
         },
         {
             path: "/login",
-            component: () => import("../components/login/index.vue")
+            component: () => import("../views/login/index.vue")
         },
         {
             path: "/main",
-            component: () => import("../components/layout/index.vue"),
+            component: () => import("../views/layout/index.vue"),
             redirect: "main/welcome",
             children: [
                 {
                     path: "welcome",
-                    component: () => import("../components/views/welcome.vue")
+                    component: () => import("../views/welcome/index.vue")
                 },
                 {
                     path: "personal",
-                    component: () => import("../components/views/personal.vue")
+                    component: () => import("../views/personal/index.vue")
                 },
                 {
                     path: "account",
-                    component: () => import("../components/views/account.vue")
+                    component: () => import("../views/account/index.vue")
                 },
                 {
                     path: "statistic",
-                    component: () => import("../components/views/statistic.vue")
+                    component: () => import("../views/statistic/index.vue")
                 }
             ]
         }
