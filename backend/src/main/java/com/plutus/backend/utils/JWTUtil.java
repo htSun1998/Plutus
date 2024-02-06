@@ -7,7 +7,7 @@ import java.util.Date;
 import java.util.Map;
 
 public class JWTUtil {
-    private static final String KEY = "our-ledger";
+    private static final String KEY = "plutus";
 
     public static String getToken(Map<String, Object> claims) {
         return JWT.create()
