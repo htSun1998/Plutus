@@ -9,12 +9,16 @@
       <el-icon><PieChart/></el-icon>
       <span>统计</span>
     </el-menu-item>
+    <el-menu-item index="3" @click="$router.push('/main/manage')">
+      <el-icon><Setting/></el-icon>
+      <span>管理</span>
+    </el-menu-item>
   </el-menu>
 </template>
 
 <script lang="ts" setup>
 import { useLayoutStore } from "../../store/layout-store.ts"
-import { EditPen, PieChart } from "@element-plus/icons-vue";
+import { EditPen, PieChart, Setting } from "@element-plus/icons-vue"
 
 const layoutStore = useLayoutStore()
 </script>

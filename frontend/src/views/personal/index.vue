@@ -22,6 +22,10 @@
         <el-form-item label="邮箱">
           <el-input v-model="userInfo.email" />
         </el-form-item>
+        <el-form-item label="手机号">
+          <el-input v-model="userInfo.telephone" />
+        </el-form-item>
+        <el-divider></el-divider>
 <!--        TODO 选择用户组-->
         <el-form-item label="组" prop="region">
           <el-select v-model="userGroup" placeholder="Activity zone">

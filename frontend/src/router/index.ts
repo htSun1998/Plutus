@@ -32,6 +32,10 @@ const router = createRouter({
                 {
                     path: "statistic",
                     component: () => import("../views/statistic/index.vue")
+                },
+                {
+                    path: "manage",
+                    component: () => import("../views/manage/index.vue")
                 }
             ]
         }
