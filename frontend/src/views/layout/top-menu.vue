@@ -13,7 +13,7 @@
 import { ArrowLeft, ArrowRight } from "@element-plus/icons-vue"
 import { useUserStore } from "../../store/user-store.ts"
 import { useLayoutStore } from "../../store/layout-store.ts"
-import {storeToRefs} from "pinia";
+import { storeToRefs } from "pinia"
 
 const userStore = useUserStore()
 const layoutStore = useLayoutStore()
@@ -30,5 +30,6 @@ function changeShowState() {
   justify-content: flex-end;
   margin-left: auto;
   cursor: pointer;
+  margin-right: 20px;
 }
 </style>

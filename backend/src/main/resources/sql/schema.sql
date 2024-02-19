@@ -30,11 +30,9 @@ create table if not exists user_group (
 -- 分类表
 create table if not exists category (
     id int unsigned primary key auto_increment comment 'ID',
-    category_id_1 int unsigned not null comment '一级分类ID',
     category_name_1 varchar(32) not null comment '一级分类名称',
-    category_id_2 int unsigned comment '二级分类ID',
     category_name_2 varchar(32) comment '二级分类名称',
-    type boolean not null comment '收入/支出，0为收入，1为输出',
+    type boolean not null comment '收入/支出，0为收入，1为支出',
     icon_url varchar(128) not null comment '图标地址',
     create_user int unsigned not null comment '创建人ID',
     create_time datetime not null comment '创建时间',

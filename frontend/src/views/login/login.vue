@@ -10,7 +10,7 @@
     </el-form>
     <el-row justify="space-between">
       <el-button type="primary" round @click="checkLogin" class="login-button">登录</el-button>
-      <el-button type="success" round @click="isLogin = !isLogin" class="login-button">注册</el-button>
+      <el-button type="success" round @click="isLogin = !isLogin" class="login-button" disabled>注册</el-button>
     </el-row>
   </el-card>
 </template>
