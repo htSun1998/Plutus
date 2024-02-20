@@ -1,6 +1,6 @@
-import { defineStore } from "pinia";
-import { ref } from "vue";
-import { userInfoApi } from "../api/user-api.ts";
+import { defineStore } from "pinia"
+import { ref } from "vue"
+import { userInfoApi } from "../api/user-api.ts"
 
 export const useUserStore = defineStore('user', () => {
     const userInfo = ref({
