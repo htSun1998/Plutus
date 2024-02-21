@@ -15,8 +15,8 @@ public interface CategoryMapper {
             "values (#{categoryName1}, #{categoryName2}, #{type}, #{iconUrl}, #{createUser}, now(), now())")
     void add(Category category);
 
-    @Select("select * from category where create_user=#{loginId}")
-    List<Category> list(Integer loginId);
+    @Select("select * from category where create_user=#{loginId} and type=#{type}")
+    List<Category> list(Integer loginId, Integer type);
 
     @Update("update category set " +
             "category_name_1=#{categoryName1}, category_name_2=#{categoryName2}, type=#{type}, icon_url=#{iconUrl}, update_time=now() " +
@@ -25,4 +25,7 @@ public interface CategoryMapper {
 
     @Delete("delete from category where id=#{id}")
     void deleteById(Integer id);
+
+    @Select("select * from category where create_user=#{loginId} and id=#{id}")
+    Category search(Integer loginId, Integer id);
 }

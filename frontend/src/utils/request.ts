@@ -1,5 +1,5 @@
 import axios, { AxiosInstance } from "axios"
-import {ElNotification} from "element-plus";
+import { ElNotification } from "element-plus"
 
 const instance: AxiosInstance = axios.create({
     baseURL: "/api",

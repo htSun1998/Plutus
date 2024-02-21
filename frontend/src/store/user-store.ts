@@ -6,9 +6,9 @@ export const useUserStore = defineStore('user', () => {
     const userInfo = ref({
         username: '',
         password: '',
+        nickname: '',
         email: '',
         telephone: '',
-        nickname: '',
         avatarUrl: '',
         createTime: '',
         updateTime: ''

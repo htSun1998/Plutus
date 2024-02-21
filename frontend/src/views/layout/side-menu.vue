@@ -1,5 +1,4 @@
 <template>
-
   <el-menu :collapse="layoutStore.isShowAside" class="menu">
     <el-menu-item index="1" @click="$router.push('/main/account')">
       <el-icon><EditPen/></el-icon>

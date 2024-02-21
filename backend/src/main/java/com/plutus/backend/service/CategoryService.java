@@ -27,10 +27,10 @@ public class CategoryService {
         categoryMapper.add(category);
     }
 
-    public List<Category> list() {
+    public List<Category> list(Integer type) {
         Map<String, Object> map = ThreadLocalUtil.get();
         Integer loginId = (Integer) map.get("id");
-        return categoryMapper.list(loginId);
+        return categoryMapper.list(loginId, type);
     }
 
     public void update(Category category) {
@@ -39,5 +39,11 @@ public class CategoryService {
 
     public void deleteById(Integer id) {
         categoryMapper.deleteById(id);
+    }
+
+    public Category findById(Integer id) {
+        Map<String, Object> map = ThreadLocalUtil.get();
+        Integer loginId = (Integer) map.get("id");
+        return categoryMapper.search(loginId, id);
     }
 }

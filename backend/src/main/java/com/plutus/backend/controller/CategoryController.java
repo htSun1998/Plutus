@@ -29,9 +29,15 @@ public class CategoryController {
         return Response.success();
     }
 
+    @GetMapping("/search")
+    public Response<Object> search(@RequestParam Integer id) {
+        Category category = categoryService.findById(id);
+        return Response.success(category);
+    }
+
     @GetMapping("/list")
-    public Response<Object> list() {
-        List<Category> categoryList = categoryService.list();
+    public Response<Object> list(@RequestParam Integer type) {
+        List<Category> categoryList = categoryService.list(type);
         return Response.success(categoryList);
     }
 

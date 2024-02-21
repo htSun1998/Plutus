@@ -20,14 +20,15 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
-import { RouterView } from "vue-router";
-import SideMenu from "./side-menu.vue";
-import TopMenu from "./top-menu.vue";
+import { defineComponent } from "vue"
+import { RouterView } from "vue-router"
+import SideMenu from "./side-menu.vue"
+import TopMenu from "./top-menu.vue"
 
 export default defineComponent({
   components: { RouterView, TopMenu, SideMenu }
 })
+
 </script>
 
 <style scoped lang="scss">
