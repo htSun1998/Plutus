@@ -12,6 +12,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class User implements Serializable {
     private Integer id;
+    private Integer GroupId;
     private String username;
     private String password;
     private String email;

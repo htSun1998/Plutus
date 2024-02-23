@@ -1,7 +1,18 @@
 -- 使用数据库
 use plutus;
 
+insert into user_group(
+    id,
+    group_name,
+    create_time,
+    update_time)
+values (1,
+        '沌沌和彬彬',
+        now(),
+        now());
+
 insert into user(id,
+                 group_id,
                  username,
                  password,
                  nickname,
@@ -11,6 +22,7 @@ insert into user(id,
                  create_time,
                  update_time)
 values (1,
+        1,
         'admin',
        'admin',
         'Club4',
@@ -21,6 +33,7 @@ values (1,
         now());
 
 insert into user(id,
+                 group_id,
                  username,
                  password,
                  nickname,
@@ -30,6 +43,7 @@ insert into user(id,
                  create_time,
                  update_time)
 values (2,
+        1,
         'Alyssayaa',
         '1998Sherry',
         'Alyssayaa',
