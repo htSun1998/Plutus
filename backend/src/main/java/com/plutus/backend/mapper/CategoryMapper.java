@@ -7,19 +7,21 @@ import java.util.List;
 
 @Mapper
 public interface CategoryMapper {
-    @Select("select * from category where " +
-            "category_name_1=#{categoryName1} and create_user=#{loginId}")
-    List<Category> findByCategoryName(String categoryName1, Integer loginId);
+    @Select("select * " +
+            "from category " +
+            "where category_name=#{categoryName} " +
+            "and create_user=#{loginId}")
+    Category findByCategoryName(String categoryName, Integer loginId);
 
-    @Insert("insert into category(category_name_1, category_name_2, type, icon_url, create_user, create_time, update_time)" +
-            "values (#{categoryName1}, #{categoryName2}, #{type}, #{iconUrl}, #{createUser}, now(), now())")
+    @Insert("insert into category(category_name, type, color, create_user, create_time, update_time)" +
+            "values (#{categoryName}, #{type}, #{color}, #{createUser}, now(), now())")
     void add(Category category);
 
     @Select("select * from category where create_user=#{loginId} and type=#{type}")
     List<Category> list(Integer loginId, Integer type);
 
-    @Update("update category set " +
-            "category_name_1=#{categoryName1}, category_name_2=#{categoryName2}, type=#{type}, icon_url=#{iconUrl}, update_time=now() " +
+    @Update("update category " +
+            "set category_name=#{categoryName}, type=#{type}, color=#{color}, update_time=now() " +
             "where id=#{id}")
     void update(Category category);
 

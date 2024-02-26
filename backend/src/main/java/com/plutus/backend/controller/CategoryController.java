@@ -16,14 +16,9 @@ public class CategoryController {
 
     @PostMapping("/add")
     public Response<Object> add(@RequestBody Category category) {
-        List<Category> categoryList = categoryService.findByCategoryName(category.getCategoryName1());
-        for (Category c: categoryList) {
-            if (c.getCategoryName2() == null && category.getCategoryName2() == null) {
-                return Response.error("该类别已存在");
-            }
-            if (c.getCategoryName2() != null && c.getCategoryName2().equals(category.getCategoryName2())) {
-                return Response.error("该类别已存在");
-            }
+        Category c = categoryService.findByCategoryName(category.getCategoryName());
+        if (c != null) {
+            return Response.error("该类别已存在");
         }
         categoryService.add(category);
         return Response.success();

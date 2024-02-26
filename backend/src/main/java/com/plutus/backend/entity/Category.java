@@ -12,10 +12,9 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class Category implements Serializable {
     private Integer id;
-    private String categoryName1;
-    private String categoryName2;
+    private String categoryName;
     private Integer type;
-    private String iconUrl;
+    private String color;
     private Integer createUser;
     private LocalDateTime createTime;
     private LocalDateTime updateTime;

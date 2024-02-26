@@ -32,7 +32,7 @@ create table if not exists category (
     id int unsigned primary key auto_increment comment 'ID',
     category_name varchar(32) not null comment '分类名称',
     type boolean not null comment '收入/支出，0为收入，1为支出',
-    color varchar(16) default '#FFFFFF' comment '图标颜色编码',
+    color varchar(16) comment '图标颜色编码',
     create_user int unsigned not null comment '创建人ID',
     create_time datetime not null comment '创建时间',
     update_time datetime not null comment '修改时间',

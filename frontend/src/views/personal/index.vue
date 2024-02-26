@@ -25,7 +25,6 @@
         <el-form-item label="手机号">
           <el-input v-model="userInfo.telephone" />
         </el-form-item>
-        <el-divider></el-divider>
 <!--        TODO 选择用户组-->
         <el-form-item label="组" prop="region">
           <el-select v-model="userGroup" placeholder="Activity zone">
@@ -34,28 +33,71 @@
           </el-select>
         </el-form-item>
       </el-form>
-      <el-button type="primary" @click="updateUserInfo">提交</el-button>
+      <el-button type="primary" @click="updateDialogVisible = true">提交</el-button>
       <el-button @click="userStore.setUserInfo">重置</el-button>
+      <el-divider></el-divider>
+      <el-button type="warning" @click="passwordDialogVisible = true">修改密码</el-button>
     </el-col>
   </el-row>
-
+  <el-dialog v-model="updateDialogVisible" align-center>
+    <span>是否修改用户信息？</span>
+    <template #footer>
+      <el-button @click="updateDialogVisible = false">取消</el-button>
+      <el-button type="primary" @click="updateUserInfo">确认</el-button>
+    </template>
+  </el-dialog>
+  <el-dialog v-model="passwordDialogVisible" align-center>
+    <el-form :model="passwordForm" label-position="top">
+      <el-form-item label="原密码">
+        <el-input v-model="passwordForm.oldPwd"></el-input>
+      </el-form-item>
+      <el-form-item label="新密码">
+        <el-input v-model="passwordForm.newPwd"></el-input>
+      </el-form-item>
+      <el-form-item label="请再次输入新密码">
+        <el-input v-model="passwordForm.rePwd"></el-input>
+      </el-form-item>
+    </el-form>
+    <template #footer>
+      <el-button @click="passwordDialogVisible = false">取消</el-button>
+      <el-button type="primary" @click="updatePwd">确认</el-button>
+    </template>
+  </el-dialog>
 </template>
 
 <script setup lang="ts">
 import { useUserStore } from "../../store/user-store.ts"
 import { storeToRefs } from "pinia"
-import {updateUserInfoApi} from "../../api/user-api.ts";
-import {ElNotification} from "element-plus";
-import {ref} from "vue";
+import { updatePasswordApi, updateUserInfoApi } from "../../api/user-api.ts"
+import { ElNotification } from "element-plus"
+import { reactive, ref } from "vue"
 
 const userStore = useUserStore()
 const { userInfo } = storeToRefs(userStore)
 
 const userGroup = ref()
+const updateDialogVisible = ref(false)
+const passwordDialogVisible = ref(false)
+
+const passwordForm = reactive({
+  oldPwd: '',
+  newPwd: '',
+  rePwd: ''
+})
 
 function updateUserInfo() {
-  console.log(userInfo)
   updateUserInfoApi(userInfo.value)
+  updateDialogVisible.value = false
+  ElNotification({
+    title: 'Success',
+    message: "修改成功",
+    type: 'success'
+  })
+}
+
+function updatePwd() {
+  updatePasswordApi(passwordForm)
+  passwordDialogVisible.value = false
   ElNotification({
     title: 'Success',
     message: "修改成功",

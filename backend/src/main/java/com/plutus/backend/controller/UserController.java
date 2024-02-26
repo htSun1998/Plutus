@@ -69,9 +69,9 @@ public class UserController {
 
     @PatchMapping("/updatePwd")
     public Response<Object> updatePwd(@RequestBody Map<String, String> params) {
-        String oldPwd = params.get("old_pwd");
-        String newPwd = params.get("new_pwd");
-        String rePwd = params.get("re_pwd");
+        String oldPwd = params.get("oldPwd");
+        String newPwd = params.get("newPwd");
+        String rePwd = params.get("rePwd");
         if (!StringUtils.hasLength(oldPwd) || !StringUtils.hasLength(newPwd) || !StringUtils.hasLength(rePwd)) {
             return Response.error("缺少必要的参数");
         }

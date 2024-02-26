@@ -14,10 +14,10 @@ public class CategoryService {
     @Resource
     CategoryMapper categoryMapper;
 
-    public List<Category> findByCategoryName(String categoryName1) {
+    public Category findByCategoryName(String categoryName) {
         Map<String, Object> map = ThreadLocalUtil.get();
         Integer loginId = (Integer) map.get("id");
-        return categoryMapper.findByCategoryName(categoryName1, loginId);
+        return categoryMapper.findByCategoryName(categoryName, loginId);
     }
 
     public void add(Category category) {
