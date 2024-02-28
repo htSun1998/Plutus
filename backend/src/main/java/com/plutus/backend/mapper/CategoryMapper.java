@@ -17,17 +17,23 @@ public interface CategoryMapper {
             "values (#{categoryName}, #{type}, #{color}, #{createUser}, now(), now())")
     void add(Category category);
 
-    @Select("select * from category where create_user=#{loginId} and type=#{type}")
-    List<Category> list(Integer loginId, Integer type);
+    @Select("select * " +
+            "from category " +
+            "where create_user=#{loginId}")
+    List<Category> list(Integer loginId);
 
     @Update("update category " +
             "set category_name=#{categoryName}, type=#{type}, color=#{color}, update_time=now() " +
             "where id=#{id}")
     void update(Category category);
 
-    @Delete("delete from category where id=#{id}")
+    @Delete("delete from category " +
+            "where id=#{id}")
     void deleteById(Integer id);
 
-    @Select("select * from category where create_user=#{loginId} and id=#{id}")
+    @Select("select * " +
+            "from category " +
+            "where create_user=#{loginId} " +
+            "and id=#{id}")
     Category search(Integer loginId, Integer id);
 }

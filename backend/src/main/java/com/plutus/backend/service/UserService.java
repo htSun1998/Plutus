@@ -39,4 +39,10 @@ public class UserService {
         Integer id = (Integer) map.get("id");
         userMapper.updatePwd(newPwd, id);
     }
+
+    public Integer getGroupId() {
+        Map<String, Object> map = ThreadLocalUtil.get();
+        Integer id = (Integer) map.get("id");
+        return userMapper.getGroupId(id);
+    }
 }

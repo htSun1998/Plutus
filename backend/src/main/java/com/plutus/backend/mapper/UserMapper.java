@@ -31,4 +31,9 @@ public interface UserMapper {
             "set password=#{newPwd}, update_time=now() " +
             "where id=#{id}")
     void updatePwd(String newPwd, Integer id);
+
+    @Select("select group_id " +
+            "from user " +
+            "where id=#{id}")
+    Integer getGroupId(Integer id);
 }

@@ -2,6 +2,8 @@ package com.plutus.backend.controller;
 
 import com.plutus.backend.entity.Response;
 import com.plutus.backend.entity.User;
+import com.plutus.backend.entity.UserGroup;
+import com.plutus.backend.service.GroupService;
 import com.plutus.backend.service.UserService;
 import com.plutus.backend.utils.JWTUtil;
 import com.plutus.backend.utils.ThreadLocalUtil;
@@ -17,6 +19,8 @@ import java.util.Map;
 public class UserController {
     @Resource
     UserService userService;
+    @Resource
+    GroupService groupService;
 
     @PostMapping("/register")
     public Response<Object> register(@RequestBody User user) {
@@ -86,5 +90,12 @@ public class UserController {
         }
         userService.updatePwd(newPwd);
         return Response.success();
+    }
+
+    @GetMapping("/group")
+    public Response<Object> group() {
+        Integer groupId = userService.getGroupId();
+        UserGroup group = groupService.findById(groupId);
+        return Response.success(group);
     }
 }

@@ -27,10 +27,10 @@ public class CategoryService {
         categoryMapper.add(category);
     }
 
-    public List<Category> list(Integer type) {
+    public List<Category> list() {
         Map<String, Object> map = ThreadLocalUtil.get();
         Integer loginId = (Integer) map.get("id");
-        return categoryMapper.list(loginId, type);
+        return categoryMapper.list(loginId);
     }
 
     public void update(Category category) {

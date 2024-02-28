@@ -14,23 +14,19 @@
     <el-col :span="14">
       <el-form :model="userInfo" label-position="top" style="width: 40vw; margin-top: 100px">
         <el-form-item label="用户名">
-          <el-input v-model="userInfo.username" />
+          <el-input v-model="userInfo.username"/>
         </el-form-item>
         <el-form-item label="昵称">
-          <el-input v-model="userInfo.nickname" />
+          <el-input v-model="userInfo.nickname"/>
         </el-form-item>
         <el-form-item label="邮箱">
-          <el-input v-model="userInfo.email" />
+          <el-input v-model="userInfo.email"/>
         </el-form-item>
         <el-form-item label="手机号">
-          <el-input v-model="userInfo.telephone" />
+          <el-input v-model="userInfo.telephone"/>
         </el-form-item>
-<!--        TODO 选择用户组-->
-        <el-form-item label="组" prop="region">
-          <el-select v-model="userGroup" placeholder="Activity zone">
-            <el-option label="Zone one" value="shanghai" />
-            <el-option label="Zone two" value="beijing" />
-          </el-select>
+        <el-form-item label="组">
+          <el-input disabled v-model="groupInfo.groupName"/>
         </el-form-item>
       </el-form>
       <el-button type="primary" @click="updateDialogVisible = true">提交</el-button>
@@ -73,9 +69,8 @@ import { ElNotification } from "element-plus"
 import { reactive, ref } from "vue"
 
 const userStore = useUserStore()
-const { userInfo } = storeToRefs(userStore)
+const { userInfo, groupInfo } = storeToRefs(userStore)
 
-const userGroup = ref()
 const updateDialogVisible = ref(false)
 const passwordDialogVisible = ref(false)
 

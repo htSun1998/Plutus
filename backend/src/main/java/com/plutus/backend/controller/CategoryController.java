@@ -31,8 +31,8 @@ public class CategoryController {
     }
 
     @GetMapping("/list")
-    public Response<Object> list(@RequestParam Integer type) {
-        List<Category> categoryList = categoryService.list(type);
+    public Response<Object> list() {
+        List<Category> categoryList = categoryService.list();
         return Response.success(categoryList);
     }
 

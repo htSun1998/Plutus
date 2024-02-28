@@ -60,6 +60,7 @@ async function checkLogin() {
   let response: any = await loginApi(loginForm)
   userStore.setToken(response.data)
   await userStore.setUserInfo()
+  await userStore.setGroupInfo()
   await router.push("/main")
 }
 </script>

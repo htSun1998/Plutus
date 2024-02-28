@@ -1,6 +1,16 @@
 import request from '../utils/request.ts'
 import { useUserStore } from "../store/user-store.ts"
 
+export function groupInfoApi() {
+    const tokenStore = useUserStore()
+    return request.get(
+        "/user/group",
+        {
+            headers: {'Authorization': tokenStore.token}
+        }
+    )
+}
+
 export function loginApi(data: any) {
     return request.post(
         "/user/login",
