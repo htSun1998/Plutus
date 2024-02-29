@@ -8,7 +8,7 @@ const instance: AxiosInstance = axios.create({
 
 instance.interceptors.response.use(
     response => {
-        if (response.data.code == 0) {
+        if (response.data.code === 0) {
             return response.data
         }
         ElNotification({

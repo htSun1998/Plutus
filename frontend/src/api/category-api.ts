@@ -9,3 +9,25 @@ export function listApi() {
             headers: {'Authorization': tokenStore.token},
         })
 }
+
+export function updateCategoryApi(data: any) {
+    const tokenStore = useUserStore()
+    return request.put(
+        "/category/update",
+        data,
+        {
+            headers: {'Authorization': tokenStore.token},
+        })
+}
+
+export function deleteCategoryApi(id: number) {
+    const tokenStore = useUserStore()
+    return request.delete(
+        "/category/delete",
+        {
+            headers: {'Authorization': tokenStore.token},
+            params: {
+                "id": id
+            }
+        })
+}

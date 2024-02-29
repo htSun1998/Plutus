@@ -9,7 +9,15 @@ export const useCategoryStore = defineStore('category', () => {
         categoryList.value = (await listApi()).data
     }
 
-    return { categoryList, setCategoryList }
+    const showUpdateDialog = ref(false)
+    const showDeleteDialog = ref(false)
+
+    return {
+        categoryList,
+        setCategoryList,
+        showUpdateDialog,
+        showDeleteDialog
+    }
 }, {
     persist: true
 })
