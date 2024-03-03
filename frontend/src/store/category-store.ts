@@ -11,12 +11,14 @@ export const useCategoryStore = defineStore('category', () => {
 
     const showUpdateDialog = ref(false)
     const showDeleteDialog = ref(false)
+    const showAddDialog = ref(false)
 
     return {
         categoryList,
         setCategoryList,
         showUpdateDialog,
-        showDeleteDialog
+        showDeleteDialog,
+        showAddDialog
     }
 }, {
     persist: true

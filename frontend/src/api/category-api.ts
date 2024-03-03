@@ -31,3 +31,13 @@ export function deleteCategoryApi(id: number) {
             }
         })
 }
+
+export function addCategoryApi(data: any) {
+    const tokenStore = useUserStore()
+    return request.post(
+        "/category/add",
+        data,
+        {
+            headers: {'Authorization': tokenStore.token}
+        })
+}

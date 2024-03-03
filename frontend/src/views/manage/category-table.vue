@@ -12,16 +12,24 @@
         <el-tag :color="scope.row.color" effect="dark">{{ scope.row.color }}</el-tag>
       </template>
     </el-table-column>
-    <el-table-column prop="type" label="类型"/>
-    <el-table-column label="操作">
+    <el-table-column label="类型">
       <template #default="scope">
-        <el-button size="small" type="primary" @click="openUpdateDialog(scope.row)">编辑</el-button>
+        <el-tag effect="light">{{ scope.row.type ? "支出" : "收入" }}</el-tag>
+      </template>
+    </el-table-column>
+    <el-table-column>
+      <template #header>
+        <el-button size="default" type="success" @click="openAddDialog">添加</el-button>
+      </template>
+      <template #default="scope">
+        <el-button size="small" type="warning" @click="openUpdateDialog(scope.row)">编辑</el-button>
         <el-button size="small" type="danger" @click="openDeleteDialog(scope.row.id)">删除</el-button>
       </template>
     </el-table-column>
   </el-table>
-  <update-dialog :formData="formData"></update-dialog>
-  <delete-dialog :id="deleteId"></delete-dialog>
+  <update-dialog :formData="formData"/>
+  <delete-dialog :id="deleteId"/>
+  <add-dialog/>
 </template>
 
 <script setup lang="ts">
@@ -30,9 +38,10 @@ import { useCategoryStore } from "../../store/category-store.ts"
 import { storeToRefs } from "pinia"
 import UpdateDialog from "./update-dialog.vue";
 import DeleteDialog from "./delete-dialog.vue";
+import AddDialog from "./add-dialog.vue";
 
 const categoryStore = useCategoryStore()
-const { categoryList, showUpdateDialog, showDeleteDialog } = storeToRefs(categoryStore)
+const { categoryList, showUpdateDialog, showDeleteDialog, showAddDialog } = storeToRefs(categoryStore)
 const loading = ref(true)
 
 const formData = reactive<TableData>({
@@ -56,6 +65,10 @@ function openDeleteDialog(id: number) {
   showDeleteDialog.value = true
 }
 
+function openAddDialog() {
+  showAddDialog.value = true
+}
+
 interface TableData {
   id: number,
   categoryName: string,
@@ -74,5 +87,8 @@ onMounted(async () => {
 .el-table {
   height: 100%;
   width: 100%;
+}
+.el-tag {
+  border-color: #FFFFFF;
 }
 </style>
