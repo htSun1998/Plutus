@@ -5,7 +5,7 @@
     </template>
     <template #footer>
       <el-button @click="showDeleteDialog=false">取消</el-button>
-      <el-button type="primary" @click="deleteCategory(props.id)">确认</el-button>
+      <el-button type="primary" @click="deleteCategory(<number>props.id)">确认</el-button>
     </template>
   </el-dialog>
 </template>

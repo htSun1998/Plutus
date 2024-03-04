@@ -12,9 +12,16 @@
         <el-tag :color="scope.row.color" effect="dark">{{ scope.row.color }}</el-tag>
       </template>
     </el-table-column>
-    <el-table-column label="类型">
+    <el-table-column
+        label="类型"
+        :filters="[
+            {text: '收入', value: 0},
+            {text: '支出', value: 1}
+        ]"
+        :filter-method="filterTag">
       <template #default="scope">
-        <el-tag effect="light">{{ scope.row.type ? "支出" : "收入" }}</el-tag>
+        <el-tag effect="light" v-if="scope.row.type === 1">支出</el-tag>
+        <el-tag effect="light" type="success" v-else>收入</el-tag>
       </template>
     </el-table-column>
     <el-table-column>
@@ -80,6 +87,10 @@ onMounted(async () => {
   await categoryStore.setCategoryList()
   loading.value = !loading.value
 })
+
+const filterTag = (value: number, row: TableData) => {
+  return row.type === value
+}
 
 </script>
 

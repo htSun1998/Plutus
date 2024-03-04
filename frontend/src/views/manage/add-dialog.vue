@@ -5,7 +5,7 @@
         <el-input v-model="formData.categoryName"></el-input>
       </el-form-item>
       <el-form-item label="颜色">
-        <el-color-picker v-model="formData.color"></el-color-picker>
+        <el-color-picker v-model="formData.color" :predefine="DEFAULT_COLOR"></el-color-picker>
       </el-form-item>
       <el-form-item label="类型">
         <el-select v-model="formData.type">
@@ -27,6 +27,7 @@ import { useCategoryStore } from "../../store/category-store.ts"
 import { storeToRefs } from "pinia"
 import { addCategoryApi } from "../../api/category-api.ts"
 import { ElNotification } from "element-plus"
+import DEFAULT_COLOR from "../../constant/color.ts"
 const categoryStore = useCategoryStore()
 const { showAddDialog } = storeToRefs(categoryStore)
 
